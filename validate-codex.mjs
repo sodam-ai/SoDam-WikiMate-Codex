@@ -152,6 +152,7 @@ const rootNotice = read("NOTICE");
 const pluginNotice = read("plugins/wikimate/NOTICE");
 ok(rootLicense === pluginLicense, "루트·플러그인 LICENSE 동일");
 ok(rootLicense.includes("Apache License") && rootLicense.includes("Version 2.0, January 2004"), "Apache License 2.0 공식 명칭·버전");
+ok(rootLicense.includes("Copyright 2026 SoDam AI Studio"), "LICENSE 저작권자·연도");
 ok(rootLicense.includes("Copyright [yyyy] [name of copyright owner]"), "Apache LICENSE Appendix 자리표시자 보존");
 ok(rootNotice === pluginNotice, "루트·플러그인 NOTICE 동일");
 ok(rootNotice.includes("Copyright 2026 SoDam AI Studio"), "NOTICE 저작권자·연도");
