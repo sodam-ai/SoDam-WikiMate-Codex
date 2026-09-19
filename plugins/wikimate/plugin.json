@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "wikimate",
+  "version": "0.10.0",
+  "description": "Codex에서 Obsidian 노트를 안전하게 수집·검색·점검·연결·분류·요약하는 로컬 MCP 플러그인입니다.",
+  "author": {
+    "name": "sodam-ai",
+    "url": "https://github.com/sodam-ai"
+  },
+  "homepage": "https://github.com/sodam-ai/SoDam-WikiMate",
+  "repository": "https://github.com/sodam-ai/SoDam-WikiMate",
+  "license": "Apache-2.0",
+  "keywords": ["obsidian", "knowledge-management", "mcp", "pkm", "codex"],
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/hooks.json",
+      "interface": {
+        "displayName": "Wikimate",
+        "shortDescription": "Codex용 Obsidian 지식 정리 도구",
+        "longDescription": "로컬 Obsidian 볼트를 안전 게이트와 백업으로 보호하면서 자료 수집, 검색, 건강검진, 링크, 분류, 요약을 수행합니다.",
+        "developerName": "sodam-ai",
+        "category": "Productivity",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "websiteURL": "https://github.com/sodam-ai/SoDam-WikiMate",
+        "defaultPrompt": [
+          "내 옵시디언 볼트에 이 자료를 정리해줘.",
+          "내 볼트의 중복·깨진 링크·고아 노트를 점검해줘.",
+          "관련 노트를 연결하고 주제별 MOC를 만들어줘."
+        ],
+        "brandColor": "#6B8E7A"
+      }
+    }
+  }
+}

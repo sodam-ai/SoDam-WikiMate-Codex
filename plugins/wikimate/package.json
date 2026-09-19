@@ -1,0 +1,23 @@
+{
+  "name": "wikimate",
+  "version": "0.10.0",
+  "private": true,
+  "type": "module",
+  "description": "Codex용 Wikimate — 자료를 옵시디언/노션 지식으로 안전하게 수집·정리하는 MCP 플러그인",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "wikimate-mcp": "mcp/server.mjs"
+  },
+  "scripts": {
+    "start": "node mcp/server.mjs",
+    "verify": "node scripts/verify-safety.mjs && node scripts/verify-collect.mjs && node scripts/verify-lint.mjs && node scripts/verify-fix.mjs && node scripts/verify-runlog.mjs && node scripts/verify-vaults.mjs && node scripts/verify-link.mjs && node scripts/verify-classify.mjs && node scripts/verify-summarize.mjs && node scripts/check-skill-triggers.mjs",
+    "security-check": "node scripts/security-scan.mjs --all",
+    "audit": "npm audit --audit-level=moderate"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
