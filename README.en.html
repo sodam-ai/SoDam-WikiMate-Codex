@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SoDam-WikiMate for Codex — English Guide</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; }
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.at { color: #7d9029; }
+code span.bn { color: #40a070; }
+code span.bu { color: #008000; }
+code span.cf { color: #007020; font-weight: bold; }
+code span.ch { color: #4070a0; }
+code span.cn { color: #880000; }
+code span.co { color: #60a0b0; font-style: italic; }
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.do { color: #ba2121; font-style: italic; }
+code span.dt { color: #902000; }
+code span.dv { color: #40a070; }
+code span.er { color: #ff0000; font-weight: bold; }
+code span.ex { }
+code span.fl { color: #40a070; }
+code span.fu { color: #06287e; }
+code span.im { color: #008000; font-weight: bold; }
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.kw { color: #007020; font-weight: bold; }
+code span.op { color: #666666; }
+code span.ot { color: #007020; }
+code span.pp { color: #bc7a00; }
+code span.sc { color: #4070a0; }
+code span.ss { color: #bb6688; }
+code span.st { color: #4070a0; }
+code span.va { color: #19177c; }
+code span.vs { color: #4070a0; }
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
+</style>
+  <style type="text/css">:root { color-scheme: light dark; }
+html { scroll-behavior: smooth; }
+body { max-width: 1040px; margin: 0 auto; padding: 32px 24px 72px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.7; }
+h1, h2, h3 { line-height: 1.3; margin-top: 1.6em; }
+h1 { border-bottom: 3px solid #4f46e5; padding-bottom: .35em; }
+h2 { border-bottom: 1px solid #94a3b8; padding-bottom: .25em; }
+blockquote { border-left: 4px solid #4f46e5; margin-left: 0; padding: .35em 1em; background: rgba(99,102,241,.08); }
+code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+:not(pre) > code { padding: .1em .35em; border-radius: 4px; background: rgba(127,127,127,.14); }
+pre { overflow-x: auto; padding: 1em; border-radius: 8px; background: #111827; color: #f9fafb; }
+table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; }
+th, td { border: 1px solid #94a3b8; padding: .55em .7em; vertical-align: top; }
+th { background: rgba(127,127,127,.12); }
+a { color: #4f46e5; }
+details { border: 1px solid #94a3b8; border-radius: 8px; padding: .8em 1em; margin: 1em 0; }
+summary { cursor: pointer; }
+@media (max-width: 640px) { body { padding: 18px 14px 48px; font-size: 16px; } h1 { font-size: 1.8em; } h2 { font-size: 1.45em; } }
+@media print { body { max-width: none; padding: 0; } a { color: inherit; } pre, blockquote, table { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">SoDam-WikiMate for Codex — English Guide</h1>
+</header>
+<h1 id="sodam-wikimate-for-codex">SoDam-WikiMate for Codex</h1>
+<blockquote>
+<p>A local-first Codex plugin that safely collects web material and
+notes, then organizes, queries, checks, links, classifies, and
+summarizes them as Obsidian-compatible Markdown knowledge.</p>
+</blockquote>
+<ul>
+<li>Project version: <code>0.10.0</code></li>
+<li>Codex plugin build: <code>0.10.0+codex.20260919174618</code></li>
+<li>Primary language: Korean</li>
+<li>한국어: <a href="README.md">README.md</a> · <a href="README.html">README.html</a></li>
+<li>HTML documentation: <a href="README.en.html">README.en.html</a></li>
+<li>License: Apache License 2.0</li>
+</ul>
+<blockquote>
+<p>Public repository:
+<code>https://github.com/sodam-ai/SoDam-WikiMate-Codex</code> · Original
+project: <code>https://github.com/sodam-ai/SoDam-WikiMate</code></p>
+</blockquote>
+<h2 id="table-of-contents">Table of contents</h2>
+<ol type="1">
+<li><a href="#1-one-sentence-explanation">One-sentence
+explanation</a></li>
+<li><a href="#2-current-scope">Current scope</a></li>
+<li><a href="#3-prerequisites-and-required-software">Prerequisites and
+required software</a></li>
+<li><a href="#4-download-and-installation">Download and
+installation</a></li>
+<li><a href="#5-quick-start">Quick start</a></li>
+<li><a href="#6-running-and-using-wikimate">Running and using
+Wikimate</a></li>
+<li><a href="#7-commands-and-tools">Commands and tools</a></li>
+<li><a href="#8-main-workflows">Main workflows</a></li>
+<li><a href="#9-note-layout-and-data-model">Note layout and data
+model</a></li>
+<li><a href="#10-file-and-document-locations">File and document
+locations</a></li>
+<li><a href="#11-architecture-and-operation">Architecture and
+operation</a></li>
+<li><a href="#12-security-and-data-flow">Security and data flow</a></li>
+<li><a href="#13-update-summary">Update summary</a></li>
+<li><a href="#14-development-and-verification-commands">Development and
+verification commands</a></li>
+<li><a href="#15-troubleshooting">Troubleshooting</a></li>
+<li><a href="#16-faq">FAQ</a></li>
+<li><a href="#17-legal-copyright-licensing-and-commercial-use">Legal,
+copyright, licensing, and commercial use</a></li>
+<li><a href="#18-current-verification-status-and-limits">Current
+verification status and limits</a></li>
+</ol>
+<h2 id="1-one-sentence-explanation">1. One-sentence explanation</h2>
+<p>Wikimate lets you ask Codex to organize material in your knowledge
+vault, shows the proposed changes first, and writes Markdown notes only
+after approval.</p>
+<p>Key terms in plain language:</p>
+<ul>
+<li><strong>Codex</strong>: the AI work environment that interprets your
+request and performs work.</li>
+<li><strong>Plugin</strong>: the package that adds Wikimate capabilities
+to Codex.</li>
+<li><strong>MCP server</strong>: a small local program that carries
+requests between Codex and local file functions.</li>
+<li><strong>Vault</strong>: the folder in which Obsidian stores Markdown
+notes.</li>
+<li><strong>Markdown</strong>: a readable plain-text document format
+using the <code>.md</code> extension.</li>
+<li><strong>dry-run</strong>: a safety preview that shows intended
+changes without changing files.</li>
+</ul>
+<p>This project is not a hosted web service or a mobile application. It
+runs with Codex on your computer, and notes are stored in a local folder
+you choose.</p>
+<h2 id="2-current-scope">2. Current scope</h2>
+<h3 id="what-it-can-do">What it can do</h3>
+<ul>
+<li>Collect web pages, text extracted from PDFs, or typed notes into new
+Markdown files</li>
+<li>Discover available Obsidian vaults</li>
+<li>Detect duplicates, broken links, orphan notes, and missing required
+frontmatter</li>
+<li>Archive notes instead of deleting them, or safely replace links</li>
+<li>Suggest related notes, add reciprocal links, and build MOC related
+sections</li>
+<li>Suggest and apply a folder, tags, importance, project, and status
+after approval</li>
+<li>Suggest and apply summaries of at most 200 characters</li>
+<li>Optionally create an atomic note without altering the source
+body</li>
+<li>Display recent run records</li>
+<li>Optionally store a page ID or URL returned by a separately connected
+Notion tool</li>
+</ul>
+<h3 id="what-it-does-not-do">What it does not do</h3>
+<ul>
+<li>It does not permanently delete existing notes automatically.</li>
+<li>It does not edit existing notes without explicit approval.</li>
+<li>It is not a secret manager for passwords, API keys, or tokens.</li>
+<li>The core Wikimate MCP server does not call the Notion API or create
+Notion database rows.</li>
+<li>It cannot register arbitrary plugin-defined slash commands such as
+<code>/wikimate</code> when Codex does not support them.</li>
+<li>It does not run directly on a phone or tablet.</li>
+</ul>
+<h2 id="3-prerequisites-and-required-software">3. Prerequisites and
+required software</h2>
+<h3 id="required">Required</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Requirement</th>
+<th>How to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Computer</td>
+<td>Windows, macOS, or Linux</td>
+<td>Must be able to run Codex and Node.js</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>Codex CLI or desktop app, signed in</td>
+<td>Run <code>codex --version</code></td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>Version 18 or newer</td>
+<td>Run <code>node --version</code></td>
+</tr>
+<tr>
+<td>Project folder</td>
+<td>The complete repository</td>
+<td>It must contain <code>plugins/wikimate</code></td>
+</tr>
+<tr>
+<td>Notes folder</td>
+<td>A folder you can write to</td>
+<td>You must be able to create and edit files</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional">Optional</h3>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>When it is useful</th>
+<th>Can Wikimate work without it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Obsidian</td>
+<td>Viewing notes and auto-detecting vaults</td>
+<td>Yes, with an explicit folder path</td>
+</tr>
+<tr>
+<td><code>notesmd-cli</code></td>
+<td>Using a supported CLI path for Obsidian notes</td>
+<td>Yes, the safe filesystem path is used when unavailable</td>
+</tr>
+<tr>
+<td>Notion</td>
+<td>Maintaining an additional Notion index</td>
+<td>Yes, local Markdown is independent</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Cloning, history, and developer updates</td>
+<td>Optional for installing an existing folder</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>Installing development dependencies and running all checks</td>
+<td>Runtime core has no external production dependency</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mobile-devices">Mobile devices</h3>
+<p>Wikimate runs on the computer where Codex is installed. You may view
+the resulting Markdown on a phone through a sync method you choose, such
+as Obsidian Sync, iCloud, OneDrive, or Syncthing. Sync services are not
+part of Wikimate; review their security, pricing, and conflict behavior
+separately.</p>
+<h2 id="4-download-and-installation">4. Download and installation</h2>
+<h3 id="41-install-from-github">4.1 Install from GitHub</h3>
+<p>Run the following in PowerShell or a terminal. Keep quotation marks
+around paths containing spaces.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>codex plugin marketplace add sodam-ai<span class="op">/</span>SoDam-WikiMate-Codex</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
+<p>After installation, open a <strong>new Codex task</strong> so the
+skills and MCP configuration are reloaded. Continuing only in an
+existing conversation may retain an old cache.</p>
+<p>Verify installation:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>codex plugin list</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>codex mcp list</span></code></pre></div>
+<p>A healthy installation shows <code>wikimate@wikimate-codex</code> as
+enabled and lists the <code>wikimate</code> MCP server.</p>
+<h3 id="42-download-the-project">4.2 Download the project</h3>
+<p>Clone the Codex port with Git:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git clone https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>sodam-ai<span class="op">/</span>SoDam-WikiMate-Codex<span class="op">.</span><span class="fu">git</span></span></code></pre></div>
+<p>Without Git, use <strong>Code → Download ZIP</strong> on GitHub.</p>
+<h3 id="43-install-from-a-local-folder">4.3 Install from a local
+folder</h3>
+<p>Replace the path below with the folder where you downloaded the
+repository.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>codex plugin marketplace add <span class="st">&quot;D:\path\to\SoDam-WikiMate-Codex&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
+<h3 id="44-mcp-only-manual-alternative">4.4 MCP-only manual
+alternative</h3>
+<p>Use this only when you need the MCP tools without plugin skills and
+the startup hook.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>codex mcp add wikimate <span class="op">--</span> node D<span class="op">:</span>\path\to\SoDam-WikiMate-Codex\plugins\wikimate\mcp\server<span class="op">.</span><span class="fu">mjs</span></span></code></pre></div>
+<p>To pass a vault path:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>codex mcp add wikimate <span class="op">--</span>env OBSIDIAN_VAULT_PATH<span class="op">=</span>D<span class="op">:/</span>MyVault <span class="op">--</span> node D<span class="op">:</span>\path\to\SoDam-WikiMate-Codex\plugins\wikimate\mcp\server<span class="op">.</span><span class="fu">mjs</span></span></code></pre></div>
+<p>This registers only the MCP tools. It does not install Wikimate
+skills, routing guidance, or the SessionStart safety context.</p>
+<h3 id="45-removal-and-updates">4.5 Removal and updates</h3>
+<p>Remove the plugin:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>codex plugin remove wikimate@wikimate-codex</span></code></pre></div>
+<p>After updating the local source, reinstall:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
+<p>Then open a new Codex task. Maintainers should update and validate
+the cachebuster in the plugin manifest before distribution; users should
+not edit that field manually.</p>
+<h2 id="5-quick-start">5. Quick start</h2>
+<ol type="1">
+<li>Open the intended vault in Obsidian, or prepare the folder&#39;s
+absolute path.</li>
+<li>Install the plugin and open a new Codex task.</li>
+<li>Open <code>/skills</code> and select <code>wikimate</code>.</li>
+<li>Ask something like:</li>
+</ol>
+<pre class="text"><code>Collect this in D:\Notes\MyVault with the title &quot;Test material.&quot;
+Body: This is a Wikimate installation test note.
+Show me a preview first.</code></pre>
+<ol start="5" type="1">
+<li>Check the proposed path, title, summary, and tags.</li>
+<li>Only if they are correct, say: “Approved. Save it for real.”</li>
+<li>Ask Codex to read the saved file back and verify its title, body,
+and links.</li>
+</ol>
+<p>Begin with a disposable test vault that contains no personal
+information.</p>
+<h2 id="6-running-and-using-wikimate">6. Running and using Wikimate</h2>
+<h3 id="recommended-entry-points">Recommended entry points</h3>
+<ul>
+<li>Open <code>/skills</code> and select <code>wikimate</code> or a
+task-specific <code>wikimate-*</code> skill</li>
+<li>Type <code>$wikimate</code>, <code>$wikimate-lint</code>, or
+<code>$wikimate-link</code> directly</li>
+<li>Ask naturally: “Use Wikimate to check this vault.”</li>
+</ul>
+<p>Codex does not currently let plugins register arbitrary slash
+commands such as <code>/wikimate</code>. Original command templates
+remain under <code>plugins/wikimate/commands/</code> for compatibility
+review and history, but the actual entry point is <code>/skills</code>
+or <code>$skill-name</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Previous expression</th>
+<th>Use in Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/wikimate</code></td>
+<td><code>/skills</code> → <code>wikimate</code>, or
+<code>$wikimate</code></td>
+</tr>
+<tr>
+<td><code>/wikimate-lint</code></td>
+<td><code>$wikimate-lint</code></td>
+</tr>
+<tr>
+<td><code>/wikimate-link</code></td>
+<td><code>$wikimate-link</code></td>
+</tr>
+<tr>
+<td><code>/wikimate-classify</code></td>
+<td><code>$wikimate-classify</code></td>
+</tr>
+<tr>
+<td><code>/wikimate-summarize</code></td>
+<td><code>$wikimate-summarize</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment-variables">Environment variables</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OBSIDIAN_VAULT_PATH</code></td>
+<td>Absolute path of the default vault</td>
+<td>Most explicit and least ambiguous</td>
+</tr>
+<tr>
+<td><code>OBSIDIAN_VAULT_NAME</code></td>
+<td>Name of a vault to auto-detect</td>
+<td>Ambiguous when names are duplicated</td>
+</tr>
+<tr>
+<td><code>NOTION_RESEARCH_DB_ID</code></td>
+<td>Optional research database ID</td>
+<td>Not consumed directly by the core server</td>
+</tr>
+<tr>
+<td><code>NOTION_RUNLOG_DB_ID</code></td>
+<td>Optional run-log database ID</td>
+<td>Used only by a separate Notion connection</td>
+</tr>
+</tbody>
+</table>
+<p><code>.env.example</code> documents variable names only. The server
+does not automatically load a <code>.env</code> file; pass values
+through operating-system variables or Codex MCP configuration. Never put
+real tokens or passwords in <code>.env</code>, README files, logs, or
+Git commits.</p>
+<h2 id="7-commands-and-tools">7. Commands and tools</h2>
+<h3 id="71-eight-provided-skills">7.1 Eight provided skills</h3>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wikimate</code></td>
+<td>Top-level entry point that routes a request to the correct
+specialist skill</td>
+</tr>
+<tr>
+<td><code>wikimate-organize</code></td>
+<td>Collection and organization workflow</td>
+</tr>
+<tr>
+<td><code>wikimate-query</code></td>
+<td>Find evidence notes and answer with citations</td>
+</tr>
+<tr>
+<td><code>wikimate-lint</code></td>
+<td>Check duplicates, broken links, orphans, and metadata</td>
+</tr>
+<tr>
+<td><code>wikimate-link</code></td>
+<td>Suggest related notes, links, and MOCs</td>
+</tr>
+<tr>
+<td><code>wikimate-classify</code></td>
+<td>Classify folder, tags, importance, status, and project</td>
+</tr>
+<tr>
+<td><code>wikimate-summarize</code></td>
+<td>Suggest a short summary and atomic note</td>
+</tr>
+<tr>
+<td><code>wikimate-reviewer</code></td>
+<td>Review the final change and safety properties</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-eight-mcp-tools">7.2 Eight MCP tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Key input</th>
+<th>Default behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wikimate_collect</code></td>
+<td><code>title</code>; optional <code>url</code>, <code>text</code>,
+<code>summary</code>, <code>tags</code>, <code>importance</code>,
+<code>vault</code>, <code>vault_path</code>, <code>folder</code>,
+<code>dry_run</code></td>
+<td>Plan or create a note; <code>dry_run=true</code> by default</td>
+</tr>
+<tr>
+<td><code>wikimate_vaults</code></td>
+<td>None</td>
+<td>List available vaults</td>
+</tr>
+<tr>
+<td><code>wikimate_lint</code></td>
+<td>Optional <code>vault</code>, <code>vault_path</code></td>
+<td>Read-only quality check</td>
+</tr>
+<tr>
+<td><code>wikimate_fix</code></td>
+<td><code>action</code>, <code>note</code>; optional <code>from</code>,
+<code>to</code>, vault, <code>dry_run</code></td>
+<td><code>archive</code> or <code>replace_link</code></td>
+</tr>
+<tr>
+<td><code>wikimate_runlog</code></td>
+<td>Optional vault and <code>limit</code></td>
+<td>Recent run records; default 20</td>
+</tr>
+<tr>
+<td><code>wikimate_link</code></td>
+<td><code>action</code>; optional <code>note</code>, <code>topic</code>,
+<code>targets</code>, <code>reason</code>, <code>kind</code>,
+<code>notion_id</code>, vault, <code>dry_run</code></td>
+<td>Suggest, link, build MOC, or store Notion ID</td>
+</tr>
+<tr>
+<td><code>wikimate_classify</code></td>
+<td><code>action</code>, <code>note</code>; optional
+<code>folder</code>, <code>tags</code>, <code>importance</code>,
+<code>status</code>, <code>project</code>, vault,
+<code>dry_run</code></td>
+<td>Suggest or apply classification</td>
+</tr>
+<tr>
+<td><code>wikimate_summarize</code></td>
+<td><code>action</code>, <code>note</code>; optional
+<code>summary</code>, <code>atomic_note</code>, vault,
+<code>dry_run</code></td>
+<td>Suggest or apply summary changes</td>
+</tr>
+</tbody>
+</table>
+<p>Input boundaries:</p>
+<ul>
+<li><code>importance</code>: 1 through 5</li>
+<li><code>kind</code>: <code>related</code> or
+<code>reference</code></li>
+<li><code>summary</code>: no more than 200 characters when applied</li>
+<li><code>classify.folder</code>: one of <code>00_Inbox</code>,
+<code>10_Projects</code>, <code>20_Resources</code>,
+<code>30_Notes</code>, <code>40_Drafts</code></li>
+<li><code>classify.status</code>: one of <code>inbox</code>,
+<code>draft</code>, <code>done</code>; change status only on an explicit
+user request</li>
+<li><code>link.action</code>: <code>suggest</code>,
+<code>add_links</code>, <code>build_moc</code>,
+<code>set_notion_id</code></li>
+<li><code>classify.action</code> and <code>summarize.action</code>:
+<code>suggest</code> or <code>apply</code></li>
+</ul>
+<h2 id="8-main-workflows">8. Main workflows</h2>
+<h3 id="81-collect-material">8.1 Collect material</h3>
+<ol type="1">
+<li>Resolve the vault by name or absolute path.</li>
+<li>Prepare the source URL, title, and complete body text.</li>
+<li>Use <code>dry_run=true</code> to inspect the filename, folder,
+frontmatter, and duplicate status.</li>
+<li>The user approves the plan.</li>
+<li>Use <code>dry_run=false</code> to write the new file
+atomically.</li>
+<li>Read the saved file back and verify it.</li>
+<li>Only when needed, create an index through a separate Notion
+connection and store the returned ID or URL.</li>
+</ol>
+<h3 id="82-query-and-answer">8.2 Query and answer</h3>
+<ol type="1">
+<li>Search candidate notes using the question&#39;s key terms.</li>
+<li>Confirm that each source file exists and is readable.</li>
+<li>Separate evidence notes and cite their files in the answer.</li>
+<li>Exclude missing files and broken Notion index entries from
+evidence.</li>
+</ol>
+<h3 id="83-check-and-fix">8.3 Check and fix</h3>
+<ol type="1">
+<li>Run the read-only <code>wikimate_lint</code> check.</li>
+<li>Group findings into duplicates, broken links, orphans, and missing
+frontmatter.</li>
+<li>Present fixes one note at a time.</li>
+<li>Back up and edit only approved notes.</li>
+<li>Move removals to <code>99_Archive</code> instead of deleting
+them.</li>
+<li>Rerun checks for the original issue and regressions.</li>
+</ol>
+<h3 id="84-links-and-mocs">8.4 Links and MOCs</h3>
+<ol type="1">
+<li>Use <code>suggest</code> to find candidates without writing.</li>
+<li>Propose no more than five normal links and give a reason for
+each.</li>
+<li>After approval, use <code>add_links</code> with <code>related</code>
+or <code>reference</code>.</li>
+<li><code>build_moc</code> updates only the relevant section and is not
+subject to the five-link limit.</li>
+</ol>
+<h3 id="85-classify">8.5 Classify</h3>
+<ol type="1">
+<li>Use <code>suggest</code> for a folder, tags, importance, project,
+and status.</li>
+<li>The user reviews each value.</li>
+<li>Use <code>apply</code> for approved values only.</li>
+<li><code>90_Templates</code> and <code>99_Archive</code> are excluded
+from automatic classification.</li>
+</ol>
+<h3 id="86-summarize">8.6 Summarize</h3>
+<ol type="1">
+<li>Read the body and suggest a summary of at most 200 characters.</li>
+<li>When useful, suggest a separate atomic note while retaining the
+source.</li>
+<li>Apply only approved summary and atomic-note changes.</li>
+<li>Never edit or delete the original body.</li>
+<li>Use <code>wikimate-reviewer</code> for important material.</li>
+</ol>
+<h2 id="9-note-layout-and-data-model">9. Note layout and data model</h2>
+<p>Recommended vault folders:</p>
+<pre class="text"><code>00_Inbox/       Newly collected, unclassified material
+10_Projects/    Active project material
+20_Resources/   Reference material
+30_Notes/       Organized knowledge notes
+40_Drafts/      Drafts
+90_Templates/   Templates
+99_Archive/     Material retained instead of deleted</code></pre>
+<p>Recommended frontmatter fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>Human-readable title</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>note</code> or <code>moc</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>inbox</code>, <code>draft</code>, or <code>done</code></td>
+</tr>
+<tr>
+<td><code>project</code></td>
+<td>Related project</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>Source URL or attribution</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>Summary of at most 200 characters</td>
+</tr>
+<tr>
+<td><code>importance</code></td>
+<td>Importance from 1 to 5</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>Search tags</td>
+</tr>
+<tr>
+<td><code>related</code></td>
+<td>Links to related notes</td>
+</tr>
+<tr>
+<td><code>source_hash</code></td>
+<td>Hash used to avoid duplicate collection</td>
+</tr>
+<tr>
+<td><code>notion_id</code></td>
+<td>Optional Notion page ID or URL</td>
+</tr>
+<tr>
+<td><code>created</code>, <code>updated</code></td>
+<td>Creation and update times</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-file-and-document-locations">10. File and document
+locations</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.agents/plugins/marketplace.json</code></td>
+<td>Local Codex marketplace definition</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/.codex-plugin/plugin.json</code></td>
+<td>Codex plugin manifest</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/plugin.json</code></td>
+<td>Portable plugin metadata</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/.mcp.json</code></td>
+<td>MCP server registration</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/hooks/</code></td>
+<td>Session-start safety context and hook</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/skills/</code></td>
+<td>Eight Codex skills</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/commands/</code></td>
+<td>Preserved original command templates; not direct slash
+registrations</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/mcp/server.mjs</code></td>
+<td>Local MCP entry point</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/mcp/lib/</code></td>
+<td>Collection, checks, fixes, links, classification, and summary
+implementation</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/templates/note.md</code></td>
+<td>Note template</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/scripts/</code></td>
+<td>Verification, security, smoke, and E2E scripts</td>
+</tr>
+<tr>
+<td><code>plugins/wikimate/references/design/</code></td>
+<td>PRD and design material</td>
+</tr>
+<tr>
+<td><code>docs/CODEX_SETUP.md</code></td>
+<td>Additional Codex setup information</td>
+</tr>
+<tr>
+<td><code>docs/original/</code></td>
+<td>Pre-port archived documents and commands; not the current state</td>
+</tr>
+<tr>
+<td><code>docs/LEGAL_AND_COMMERCIAL_USE.md</code></td>
+<td>Legal, copyright, release, and client-delivery checklist</td>
+</tr>
+<tr>
+<td><code>THIRD_PARTY_NOTICES.md</code></td>
+<td>Actual dependencies and optional external-service notices</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code></td>
+<td>Project work rules</td>
+</tr>
+<tr>
+<td><code>DEVELOPMENT.md</code></td>
+<td>Developer guide</td>
+</tr>
+<tr>
+<td><code>LICENSE</code>, <code>NOTICE</code></td>
+<td>License text and notices</td>
+</tr>
+<tr>
+<td><code>README.md</code>, <code>README.html</code></td>
+<td>Korean user guide</td>
+</tr>
+<tr>
+<td><code>README.en.md</code>, <code>README.en.html</code></td>
+<td>English user guide</td>
+</tr>
+</tbody>
+</table>
+<p>Operational files created inside a vault:</p>
+<ul>
+<li><code>.wikimate/runlog.jsonl</code>: local run history</li>
+<li><code>.wikimate/backups/</code>: backups made before editing an
+existing note</li>
+<li><code>.wikimate/write.lock</code>: concurrent-write lock</li>
+</ul>
+<p>Do not manually edit these internal files during normal
+operation.</p>
+<h2 id="11-architecture-and-operation">11. Architecture and
+operation</h2>
+<pre class="text"><code>User
+  ↓ natural language, /skills, $wikimate-*
+Codex skill router
+  ↓ structured tool request
+Local MCP server (stdio JSON-RPC)
+  ↓ input validation → path validation → dry-run/approval → write lock
+notesmd-cli (when available and vault identity is verified) or safe filesystem path
+  ↓
+Obsidian Markdown vault
+  ├─ notes
+  └─ .wikimate/{runlog.jsonl, backups, write.lock}
+
+Optional path: Codex → separate Notion connection → Notion → store returned ID/URL in note</code></pre>
+<p>The MCP server communicates with Codex over standard input and
+output, so it does not open a normal web port. File changes use a
+vault-level lock and atomic replacement through a temporary file.</p>
+<h2 id="12-security-and-data-flow">12. Security and data flow</h2>
+<h3 id="safety-controls">Safety controls</h3>
+<ul>
+<li>External document content is treated as untrusted data, not as
+executable instructions.</li>
+<li>New collection and mutation tools default to
+<code>dry_run=true</code>.</li>
+<li>Existing-note changes require explicit approval per note.</li>
+<li>Removal means moving to <code>99_Archive</code>, not permanent
+deletion.</li>
+<li>A recovery copy is created under <code>.wikimate/backups</code>
+before editing.</li>
+<li><code>.wikimate/write.lock</code> prevents concurrent processes from
+writing; only stale locks owned by dead processes are recovered.</li>
+<li>Canonical real paths block vault escape through <code>..</code>,
+absolute paths, UNC paths, symbolic links, and junctions.</li>
+<li>Normal note operations cannot target <code>.obsidian</code> or
+<code>.wikimate</code> internals.</li>
+<li>Filename collisions create a safe suffix instead of
+overwriting.</li>
+<li><code>source_hash</code> reduces duplicate collection.</li>
+<li>Error sanitization prevents a failed external CLI message from
+exposing the full note body.</li>
+</ul>
+<h3 id="where-data-goes">Where data goes</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Data flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core MCP features</td>
+<td>Codex process on the computer ↔︎ local MCP ↔︎ user-selected local
+vault</td>
+</tr>
+<tr>
+<td>Codex conversation</td>
+<td>Governed by the data settings for the active Codex/OpenAI account
+and organization</td>
+</tr>
+<tr>
+<td>Optional Notion use</td>
+<td>Sent to Notion only when connected and approved; Notion terms
+apply</td>
+</tr>
+<tr>
+<td>Mobile sync</td>
+<td>Sent through the user&#39;s separate sync service; that service&#39;s terms
+apply</td>
+</tr>
+</tbody>
+</table>
+<p>“Local MCP file handling” does not mean the entire AI workflow is
+fully offline. Process secrets, government IDs, health, legal,
+financial, and customer-confidential data only after checking applicable
+law and organizational policy, and only to the minimum extent
+needed.</p>
+<h3 id="operational-recommendations">Operational recommendations</h3>
+<ul>
+<li>Do not connect multiple Wikimate servers to one vault at the same
+time.</li>
+<li>Back up the complete vault before bulk changes.</li>
+<li>Avoid automatically editing a file while a person is editing it in
+Obsidian.</li>
+<li>Give a Notion connection least privilege to only the required
+databases.</li>
+<li>Never commit <code>.env</code>, tokens, certificates, private keys,
+or database credentials.</li>
+</ul>
+<h2 id="13-update-summary">13. Update summary</h2>
+<details>
+<summary><strong>Open the v0.10.0 Codex port summary</strong></summary>
+
+<ul>
+<li>Added a Codex local marketplace and <code>.codex-plugin</code>
+layout</li>
+<li>Added eight skills and eight MCP tools</li>
+<li>Mapped the original command intent to <code>/skills</code> and
+<code>$wikimate-*</code> entry points</li>
+<li>Preserved original command templates for compatibility review</li>
+<li>Added SessionStart safety context and vault discovery</li>
+<li>Strengthened the dry-run → approval → write → read-back
+workflow</li>
+<li>Added or strengthened cross-process locking, atomic writes, backups,
+and run logs</li>
+<li>Blocked vault escape through symbolic links and junctions</li>
+<li>Sanitized external CLI errors to avoid exposing note bodies</li>
+<li>Verified multiple Node versions, MCP smoke behavior, security
+checks, and installed-cache identity</li>
+<li>Separated the public Codex repository from local verification scope,
+with real user-vault writes and live Notion integration listed as
+environment-specific checks</li>
+</ul>
+</details>
+
+<h2 id="14-development-and-verification-commands">14. Development and
+verification commands</h2>
+<p>There is no root <code>package.json</code>; run package commands from
+<code>plugins/wikimate</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> plugins\wikimate</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>npm ci</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>npm run verify</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>node scripts\smoke-server<span class="op">.</span><span class="fu">mjs</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>node scripts\smoke-tools<span class="op">.</span><span class="fu">mjs</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>npm run security-check</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>npm audit <span class="op">--</span>audit-level<span class="op">=</span>moderate</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="op">..</span>\<span class="op">..</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>node validate-codex<span class="op">.</span><span class="fu">mjs</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>git <span class="fu">diff</span> <span class="op">--</span>check</span></code></pre></div>
+<ul>
+<li>No separate <code>build</code> script: this is buildless JavaScript
+ESM.</li>
+<li>No separate <code>typecheck</code> script: this is not a TypeScript
+project.</li>
+<li>No separate <code>lint</code> script: functional verification,
+syntax checks, security checks, and Git whitespace checks are
+combined.</li>
+<li><code>npm audit</code> requires network access to the npm security
+registry. A network error is not the same as a reported
+vulnerability.</li>
+</ul>
+<h2 id="15-troubleshooting">15. Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Safe resolution order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plugin is not listed</td>
+<td>Wrong marketplace root or missing installation</td>
+<td>Confirm repository root → add marketplace → add plugin → run
+<code>codex plugin list</code></td>
+</tr>
+<tr>
+<td>Skills are missing</td>
+<td>Existing task cache</td>
+<td>Confirm plugin is enabled → open a new Codex task → inspect
+<code>/skills</code></td>
+</tr>
+<tr>
+<td>MCP server is missing</td>
+<td>Node PATH, relative path, or manifest issue</td>
+<td>Run <code>node --version</code> → <code>codex mcp list</code> → from
+the project, check <code>node plugins/wikimate/mcp/server.mjs</code>
+syntax/startup</td>
+</tr>
+<tr>
+<td>No vault is found</td>
+<td>No Obsidian config or duplicate names</td>
+<td>Open a vault in Obsidian → set <code>OBSIDIAN_VAULT_PATH</code> or
+give the absolute path in the request</td>
+</tr>
+<tr>
+<td>No file after preview</td>
+<td>Expected <code>dry_run=true</code> behavior</td>
+<td>Review the plan, then explicitly approve a real write</td>
+</tr>
+<tr>
+<td><code>VAULT_BUSY</code></td>
+<td>Another process is writing</td>
+<td>Wait → close duplicate Codex/MCP processes → retry. Do not delete
+the lock until all writers are stopped</td>
+</tr>
+<tr>
+<td>Path access denied</td>
+<td>Outside-vault path, <code>..</code>, junction, or protected
+internals</td>
+<td>Use a normal path inside the vault; do not disable the guard</td>
+</tr>
+<tr>
+<td>Collection skipped as duplicate</td>
+<td>Matching <code>source_hash</code> exists</td>
+<td>Review the existing note; distinguish source or content only if a
+new note is truly needed</td>
+</tr>
+<tr>
+<td>Numeric filename suffix</td>
+<td>Collision protection</td>
+<td>Expected no-overwrite behavior; compare the two files</td>
+</tr>
+<tr>
+<td>Nothing appears in Notion</td>
+<td>Core server does not write Notion directly</td>
+<td>Check the separate Notion connection and database permission →
+approve indexing → store returned ID</td>
+</tr>
+<tr>
+<td>Korean path or spaces fail</td>
+<td>Shell quoting issue</td>
+<td>Wrap the entire path in double quotation marks and retry in
+PowerShell</td>
+</tr>
+<tr>
+<td>Cannot run on mobile</td>
+<td>Desktop local plugin</td>
+<td>Run it on the computer and view results through an approved sync
+method</td>
+</tr>
+<tr>
+<td><code>npm audit</code> fails</td>
+<td>Network/registry error or a vulnerability</td>
+<td>Read the exact error → retry after network recovery → analyze
+package impact if a vulnerability is reported</td>
+</tr>
+</tbody>
+</table>
+<p>For a repeatable problem, share only: operating system, Codex and
+Node versions, the command, a short sanitized error, and the affected
+relative path. Do not share full note bodies, tokens, <code>.env</code>,
+or an entire home-directory path.</p>
+<h2 id="16-faq">16. FAQ</h2>
+<h3 id="q-does-it-delete-existing-notes">Q. Does it delete existing
+notes?</h3>
+<p>No. The default policy prohibits hard deletion; approved removals
+move to <code>99_Archive</code>.</p>
+<h3 id="q-must-obsidian-always-be-open">Q. Must Obsidian always be
+open?</h3>
+<p>No when using an explicit vault path. Auto-discovery is more reliable
+when Obsidian configuration exists.</p>
+<h3 id="q-is-a-notion-account-required">Q. Is a Notion account
+required?</h3>
+<p>No. Notion is optional and local Markdown features work
+independently.</p>
+<h3 id="q-does-all-data-stay-on-my-computer">Q. Does all data stay on my
+computer?</h3>
+<p>Local MCP file I/O stays local. Codex conversations follow
+Codex/OpenAI settings, and data may leave the computer when you
+explicitly use Notion or a sync service.</p>
+<h3 id="q-can-i-use-the-original-wikimate-slash-command">Q. Can I use
+the original <code>/wikimate</code> slash command?</h3>
+<p>Codex does not currently register arbitrary plugin-defined slash
+commands. Select <code>wikimate</code> from <code>/skills</code> or use
+<code>$wikimate</code>.</p>
+<h3 id="q-can-i-run-it-directly-on-a-phone">Q. Can I run it directly on
+a phone?</h3>
+<p>The plugin runs on a computer. Synced Markdown results can be viewed
+in mobile Obsidian or another Markdown application.</p>
+<h3 id="q-can-it-edit-an-existing-note">Q. Can it edit an existing
+note?</h3>
+<p>Yes, through preview, explicit approval, backup, and atomic-write
+steps. Summarization never rewrites the original body.</p>
+<h3 id="q-can-several-people-use-the-same-vault-concurrently">Q. Can
+several people use the same vault concurrently?</h3>
+<p>The lock reduces automation conflicts but cannot resolve every
+human-edit or external-sync conflict. Avoid editing the same file
+simultaneously and define team backup and merge rules.</p>
+<h3 id="q-where-are-logs-and-backups">Q. Where are logs and
+backups?</h3>
+<p>In <code>.wikimate/runlog.jsonl</code> and
+<code>.wikimate/backups/</code> inside the vault. The design avoids
+logging sensitive bodies, but the user controls access permissions and
+retention.</p>
+<h3 id="q-what-does-saved-successfully-mean">Q. What does “saved
+successfully” mean?</h3>
+<p>It means more than receiving a successful write response: the saved
+file was read back and its title, body, and metadata were confirmed
+against the plan.</p>
+<h2 id="17-legal-copyright-licensing-and-commercial-use">17. Legal,
+copyright, licensing, and commercial use</h2>
+<blockquote>
+<p>This section is technical compliance guidance, not legal advice.
+Obligations vary by jurisdiction, organization, and material. Consult
+qualified legal counsel for commercial distribution or sensitive-data
+processing.</p>
+</blockquote>
+<p>For the detailed release checklist and the separation between
+verified facts and legal-review items, also read the <a href="docs/LEGAL_AND_COMMERCIAL_USE.md">legal, copyright, license, and
+commercial-use guide</a> and <a href="THIRD_PARTY_NOTICES.md">third-party software and service
+notices</a>.</p>
+<h3 id="project-code">Project code</h3>
+<p>This project is provided under the <strong>Apache License
+2.0</strong> in <code>LICENSE</code>. It generally permits personal,
+educational, research, internal business, and commercial use, as well as
+modification, reproduction, derivative works, and distribution, subject
+to conditions including:</p>
+<ul>
+<li>Include a copy of the Apache 2.0 license with distributions.</li>
+<li>Retain applicable copyright, patent, trademark, and attribution
+notices.</li>
+<li>When a <code>NOTICE</code> file is supplied, carry the relevant
+notices in a readable form.</li>
+<li>Mark files to which you made significant changes.</li>
+<li>Apache 2.0 does not grant trademark rights. Do not imply official
+approval or affiliation through names or logos such as SoDam, WikiMate,
+Obsidian, or Notion.</li>
+<li>The software is provided without warranty. Users remain responsible
+for backups and production validation.</li>
+</ul>
+<p>The English license controls: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License
+2.0</a>, <a href="https://www.apache.org/foundation/license-faq.html">Apache License
+FAQ</a>.</p>
+<h3 id="commercial-use">Commercial use</h3>
+<p>The Wikimate code itself may be used commercially when you comply
+with Apache 2.0. The following rights remain separate:</p>
+<ol type="1">
+<li><strong>Collected source material</strong>: copyrights and site
+terms for web pages, PDFs, books, images, and customer documents remain
+with their owners. Public availability does not itself grant rights to
+reproduce, redistribute, or submit material to AI.</li>
+<li><strong>Personal and confidential data</strong>: assess lawful
+basis, notice or consent, data minimization, retention, deletion
+requests, cross-border transfer, and organizational security rules.</li>
+<li><strong>Obsidian</strong>: as checked on 2026-09-20, its official
+license and pricing pages describe use for personal, commercial, and
+nonprofit purposes without a mandatory paid commercial license, while
+offering a paid support license. Policies can change; recheck <a href="https://obsidian.md/license">Obsidian License Overview</a> and <a href="https://obsidian.md/pricing">Obsidian Pricing</a> before
+organizational deployment.</li>
+<li><strong>Notion</strong>: when connected, Notion service terms,
+privacy policy, and Developer Terms apply separately. Do not collect,
+store, alter, or delete integration data without end-user consent, and
+do not solicit user tokens. See <a href="https://www.notion.so/notion/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac">Notion
+Terms and Privacy</a> and <a href="https://www.notion.so/Developer-Terms-ba4131408d0844e08330da2cbb225c20">Notion
+Developer Terms</a>.</li>
+<li><strong>Codex/OpenAI and sync services</strong>: separately review
+the terms, account type, organizational data controls, and retention
+policy.</li>
+<li><strong>Third-party packages</strong>: before redistribution,
+inspect the license and notices for each actual version. This project&#39;s
+license does not override third-party terms.</li>
+</ol>
+<h3 id="beginner-use-matrix">Beginner use matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify, copy, or fork</td>
+<td>Allowed. Retain notices and mark distributed files with material
+changes</td>
+</tr>
+<tr>
+<td>Redistribute or sell</td>
+<td>Allowed. Provide LICENSE and relevant NOTICE material; clear
+third-party rights separately</td>
+</tr>
+<tr>
+<td>Internal company or educational use</td>
+<td>Allowed. Follow organizational AI, security, and privacy
+policies</td>
+</tr>
+<tr>
+<td>SaaS or client delivery</td>
+<td>Conditionally allowed. Separately review contract, data processing,
+external APIs, trademarks, and warranties</td>
+</tr>
+<tr>
+<td>Use Wikimate/SoDam names or logos as your brand</td>
+<td>Not granted by Apache-2.0. Separate rights clearance and permission
+are required</td>
+</tr>
+<tr>
+<td>Redistribute customer documents, web sources, images, or
+characters</td>
+<td>Outside the project license. Permission or another lawful basis is
+required</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-generated-or-ai-assisted-content">AI-generated or AI-assisted
+content</h3>
+<p>Code, documentation, prompts, and notes may contain AI-generated or
+AI-edited material. Before publication, sale, or delivery, a person must
+review accuracy, security, provenance, licenses, similarity to existing
+works, code, images, characters, and marks, and copyrightability under
+applicable law. Exclusive ownership, registrability, and
+non-infringement are not guaranteed.</p>
+<h3 id="legalprofessional-review-required">Legal/professional review
+required</h3>
+<p>This repository alone cannot establish the legal identity and rights
+basis behind <code>SoDam AI Studio</code>, contribution terms for other
+Git contributors, trademark status of <code>Wikimate</code> or
+<code>SoDam AI Studio</code>, client contract terms, regulated-data
+compliance, or commercial redistribution rights in collected source
+material.</p>
+<h3 id="checklist-before-collecting-material">Checklist before
+collecting material</h3>
+<ul>
+<li>Do I have permission to store, summarize, and transform this
+material?</li>
+<li>Am I avoiding circumvention of robots policies, paywalls, access
+controls, and site terms?</li>
+<li>Does it contain personal data, trade secrets, or health, financial,
+or legal information?</li>
+<li>Am I collecting only what is necessary, with a retention and
+deletion plan?</li>
+<li>If I publish or sell the summary, will I satisfy source attribution,
+quotation, and license duties?</li>
+<li>Does the workflow comply with customer or organizational AI and
+cross-border-transfer policies?</li>
+</ul>
+<p>If any answer is unclear, stop collection and consult the rights
+holder or legal/security staff.</p>
+<h2 id="18-current-verification-status-and-limits">18. Current
+verification status and limits</h2>
+<p>Verified for the current port:</p>
+<ul>
+<li>Reproducible dependency installation passed</li>
+<li>236 core checks passed</li>
+<li>18 MCP smoke checks passed</li>
+<li>Verification passed on Node.js 18, 20, and 26</li>
+<li>115 Codex-port checks passed</li>
+<li>Official plugin validator passed against source and installed
+cache</li>
+<li>Syntax checks for 30 JavaScript modules, parsing of 9 JSON files,
+and YAML parsing passed</li>
+<li>88 security checks passed; npm production and full audits reported
+zero vulnerabilities</li>
+<li>44 installed-cache file hashes matched and the plugin was
+enabled</li>
+<li>Read-only registered-vault check: 11 existed, 2 were open, and 0
+names were ambiguous</li>
+<li>Internal 5,000-note benchmark: about 2.385 seconds and about 2.68
+MiB heap growth</li>
+</ul>
+<p>Environment-specific checks still required before final
+deployment:</p>
+<ul>
+<li>No write was performed against the user&#39;s real vault during this
+documentation step, to protect data.</li>
+<li>Live Notion create/read/update was not run because it is optional
+and requires account permissions.</li>
+<li>Remote GitHub Actions results must be checked separately after
+repository publication and PR creation.</li>
+<li>The current Git worktree contains many porting changes and only the
+original upstream remote, so it must not be pushed publicly as-is.</li>
+</ul>
+<p>Before deployment, use a test vault to run collect → approve → write
+→ read-back → lint → backup restoration once, and have a person confirm
+the publication repository, branch, and legal notices.</p>
+</body>
+</html>
