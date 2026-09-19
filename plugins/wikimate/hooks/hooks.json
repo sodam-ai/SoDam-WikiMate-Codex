@@ -1,0 +1,16 @@
+{
+  "description": "Wikimate 세션 시작 시 안전 규칙과 Obsidian 볼트 감지 결과를 읽기 전용으로 주입합니다.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/session-start.mjs\"",
+            "additionalContextLimit": 0
+          }
+        ]
+      }
+    ]
+  }
+}

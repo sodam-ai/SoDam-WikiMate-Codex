@@ -1,0 +1,20 @@
+{
+  "name": "wikimate-codex",
+  "interface": {
+    "displayName": "Wikimate for Codex"
+  },
+  "plugins": [
+    {
+      "name": "wikimate",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wikimate"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
