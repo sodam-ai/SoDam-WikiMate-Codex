@@ -1,0 +1,5 @@
+#!/bin/sh
+# 커밋 전 보안 자동 점검 — 스테이징된 파일만 검사.
+# 활성화: git config core.hooksPath .githooks
+node plugins/wikimate/scripts/security-scan.mjs
+exit $?

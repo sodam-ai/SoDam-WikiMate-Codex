@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: plugins/wikimate/package-lock.json
+      - name: Install test dependencies
+        working-directory: plugins/wikimate
+        run: npm ci
+      - name: Dependency security audit
+        working-directory: plugins/wikimate
+        run: npm run audit
+      - name: Core verification
+        working-directory: plugins/wikimate
+        run: npm run verify
+      - name: MCP protocol smoke
+        working-directory: plugins/wikimate
+        run: node scripts/smoke-tools.mjs
+      - name: Codex package verification
+        run: node validate-codex.mjs
+      - name: Repository-file security scan
+        working-directory: plugins/wikimate
+        run: node scripts/security-scan.mjs --all

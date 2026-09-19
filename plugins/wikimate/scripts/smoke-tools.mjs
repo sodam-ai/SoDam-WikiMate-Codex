@@ -1,0 +1,109 @@
+// MCP 서버 end-to-end 스모크: 새 도구(lint·fix·runlog)를 '실제 서버 프로토콜'로 호출해 배선 검증.
+// lib 단위테스트(verify-*.mjs)와 달리, JSON-RPC 서버를 거쳐 인자 전달·dispatch·응답이 진짜 도는지 본다.
+// 사용: node scripts/smoke-tools.mjs   (devDependency @modelcontextprotocol/sdk 필요 → npm install 후)
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+import { fileURLToPath } from "node:url";
+import { dirname, join, basename } from "node:path";
+import { mkdir, writeFile, rm, stat, readFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+
+const root = dirname(dirname(fileURLToPath(import.meta.url)));
+const vault = join(tmpdir(), `wikimate_smoke_tools_${process.pid}`);
+let pass = 0, fail = 0;
+const check = (label, cond) => { console.log(`${cond ? "PASS ✅" : "FAIL ❌"}  ${label}`); cond ? pass++ : fail++; };
+const exists = (p) => stat(p).then(() => true).catch(() => false);
+const parse = (res) => { try { return JSON.parse(res.content?.[0]?.text || "{}"); } catch { return {}; } };
+
+// 임시 볼트에 문제 케이스 심기
+await mkdir(join(vault, "30_Notes"), { recursive: true });
+await mkdir(join(vault, "00_Inbox"), { recursive: true });
+await mkdir(join(vault, "20_Resources"), { recursive: true });
+const note = (title, hash, body = "") => `---\ntitle: ${title}\nsource_hash: ${hash}\ncreated: 2026-01-01\n---\n${body}`;
+await writeFile(join(vault, "30_Notes", "dupX.md"), note("dupX", "DUP"), "utf8");
+await writeFile(join(vault, "30_Notes", "dupY.md"), note("dupY", "DUP"), "utf8");
+await writeFile(join(vault, "30_Notes", "linker.md"), note("linker", "L1", "- [[target]]\n- [[broken]]"), "utf8");
+await writeFile(join(vault, "30_Notes", "target.md"), note("target", "T1", "- [[linker]]"), "utf8");
+await writeFile(join(vault, "00_Inbox", "classifyme.md"), note("classifyme", "CLS1", "분류 테스트용 본문입니다."), "utf8");
+await writeFile(join(vault, "20_Resources", "summarizeme.md"), note("summarizeme", "SUM1", "요약 테스트용 본문이 여기 들어갑니다. 서버 경유 검증용 텍스트."), "utf8");
+
+// 가짜 obsidian.json(이 임시 볼트를 'open'으로 등록) → wikimate_vaults 결정론적 검증용
+const cfgFile = join(tmpdir(), `wikimate_smoke_cfg_${process.pid}.json`);
+await writeFile(cfgFile, JSON.stringify({ vaults: { id1: { path: vault, open: true } } }), "utf8");
+
+const transport = new StdioClientTransport({ command: "node", args: [join(root, "mcp", "server.mjs")], env: { ...process.env, OBSIDIAN_CONFIG_PATH: cfgFile } });
+const client = new Client({ name: "smoke-tools", version: "1.0.0" }, { capabilities: {} });
+
+try {
+  await client.connect(transport);
+  console.log("연결 ✅");
+
+  // 1) 도구 8개 노출
+  const tools = (await client.listTools()).tools.map((t) => t.name).sort();
+  check("도구 8개 노출(collect/fix/lint/runlog/vaults/link/classify/summarize)", ["wikimate_collect", "wikimate_fix", "wikimate_lint", "wikimate_runlog", "wikimate_vaults", "wikimate_link", "wikimate_classify", "wikimate_summarize"].every((n) => tools.includes(n)));
+
+  // 2) lint를 서버 통해 호출 → 중복·깨진링크 탐지
+  const lintR = parse(await client.callTool({ name: "wikimate_lint", arguments: { vault_path: vault } }));
+  check("서버경유 lint: ok + 중복 1그룹", lintR.ok === true && lintR.summary?.duplicates === 1);
+  check("서버경유 lint: 깨진링크 'broken' 탐지", (lintR.broken_links || []).some((b) => b.target === "broken"));
+
+  // 3) collect를 서버 통해 실제 생성(dry_run=false) → 파일 + Run Log 기록
+  const colR = parse(await client.callTool({ name: "wikimate_collect", arguments: { vault_path: vault, title: "서버수집", text: "본문", url: "https://ex.com/s", dry_run: false } }));
+  check("서버경유 collect: 실제 생성(written)", colR.written === true);
+
+  // 4) fix archive를 서버 통해 dry-run → 실제(삭제 아님=이동)
+  const fxDry = parse(await client.callTool({ name: "wikimate_fix", arguments: { vault_path: vault, action: "archive", note: "30_Notes/dupY.md", dry_run: true } }));
+  check("서버경유 fix archive dry-run: 이동 예고", fxDry.dry_run === true && String(fxDry.would_move_to || "").includes("99_Archive"));
+  const fxReal = parse(await client.callTool({ name: "wikimate_fix", arguments: { vault_path: vault, action: "archive", note: "30_Notes/dupY.md", dry_run: false } }));
+  check("서버경유 fix archive 실제: 이동 완료", fxReal.dry_run === false && !(await exists(join(vault, "30_Notes", "dupY.md"))) && await exists(join(vault, fxReal.moved_to)));
+
+  // 5) runlog를 서버 통해 조회 → collect·fix 작업이 기록됨
+  const logR = parse(await client.callTool({ name: "wikimate_runlog", arguments: { vault_path: vault, limit: 10 } }));
+  const acts = (logR.entries || []).map((e) => `${e.tool}:${e.action}`);
+  check("서버경유 runlog: collect·archive 기록 확인", logR.ok === true && acts.includes("collect:create") && acts.includes("fix:archive"));
+
+  // 6) vaults를 서버 통해 조회 → 등록 볼트 후보 제시(읽기 전용·자동 선택 X)
+  const vaultsR = parse(await client.callTool({ name: "wikimate_vaults", arguments: {} }));
+  check("서버경유 vaults: ok + open 볼트 제시", vaultsR.ok === true && vaultsR.open_vault === basename(vault) && (vaultsR.vaults || []).some((v) => v.path === vault));
+
+  // 6.5) link(set_notion_id)를 서버 통해 호출 → notion_id snake_case 인자가 실제로 반영되는지
+  // (atomic_note에서 실측으로 발견됐던 snake_case->camelCase 매핑 버그와 같은 위험 영역이라 배선 자체를 확인)
+  const notionR = parse(await client.callTool({ name: "wikimate_link", arguments: { vault_path: vault, action: "set_notion_id", note: "30_Notes/target.md", notion_id: "notion-page-xyz", dry_run: false } }));
+  check("서버경유 link set_notion_id: 실제 반영", notionR.ok === true && notionR.notion_id?.after === "notion-page-xyz" && await exists(join(vault, "30_Notes", "target.md")));
+
+  // 6.6) link(add_links + reason, 2026-08-31 신규) — reason 인자가 서버 배선을 거쳐 실제로 본문 섹션에 반영되는지
+  const reasonR = parse(await client.callTool({ name: "wikimate_link", arguments: { vault_path: vault, action: "add_links", note: "30_Notes/linker.md", targets: ["dupX"], reason: "서버경유 배선 확인용", dry_run: false } }));
+  check("서버경유 link add_links reason: reason_recorded:true", reasonR.ok === true && reasonR.reason_recorded === true);
+  const linkerText = await readFile(join(vault, "30_Notes", "linker.md"), "utf8");
+  check("서버경유 link add_links reason: 본문에 '왜 연결했는지' 섹션 반영", linkerText.includes("## 왜 연결했는지") && linkerText.includes("서버경유 배선 확인용"));
+
+  // 6.7) link(add_links + kind, 2026-09-01 신규) — kind 인자가 서버 배선을 거쳐 실제로 괄호로 반영되는지
+  const kindR = parse(await client.callTool({ name: "wikimate_link", arguments: { vault_path: vault, action: "add_links", note: "30_Notes/linker.md", targets: ["target"], kind: "reference", dry_run: false } }));
+  check("서버경유 link add_links kind: kind_recorded:true", kindR.ok === true && kindR.kind_recorded === true);
+  const linkerText2 = await readFile(join(vault, "30_Notes", "linker.md"), "utf8");
+  check("서버경유 link add_links kind: 본문 불릿에 (reference) 괄호 반영", linkerText2.includes("- [[target]] (reference)"));
+
+  // 7) classify를 서버 통해 호출 → suggest(읽기전용 조회) + apply(실제 폴더 이동)
+  const clsSuggest = parse(await client.callTool({ name: "wikimate_classify", arguments: { vault_path: vault, action: "suggest", note: "00_Inbox/classifyme.md" } }));
+  check("서버경유 classify suggest: ok + current_folder", clsSuggest.ok === true && clsSuggest.target?.current_folder === "00_Inbox");
+  const clsApply = parse(await client.callTool({ name: "wikimate_classify", arguments: { vault_path: vault, action: "apply", note: "00_Inbox/classifyme.md", folder: "20_Resources", dry_run: false } }));
+  check("서버경유 classify apply: 실제 폴더 이동", clsApply.ok === true && clsApply.note === "20_Resources/classifyme.md" && await exists(join(vault, "20_Resources", "classifyme.md")));
+
+  // 7.5) classify status/project — 02_DATA_MODEL.md에 정의됐지만 어떤 도구도 못 바꾸던 필드(이번 세션 감사로 발견, classify.mjs에 신규 배선)
+  const clsStatus = parse(await client.callTool({ name: "wikimate_classify", arguments: { vault_path: vault, action: "apply", note: "20_Resources/classifyme.md", status: "draft", project: "서버경유 테스트", dry_run: false } }));
+  check("서버경유 classify apply: status/project 실제 반영", clsStatus.ok === true && clsStatus.plan?.status?.after === "draft" && clsStatus.plan?.project?.after === "서버경유 테스트");
+
+  // 8) summarize를 서버 통해 호출 → suggest(본문 읽기전용 조회) + apply(summary 반영)
+  const sumSuggest = parse(await client.callTool({ name: "wikimate_summarize", arguments: { vault_path: vault, action: "suggest", note: "20_Resources/summarizeme.md" } }));
+  check("서버경유 summarize suggest: ok + body 포함", sumSuggest.ok === true && typeof sumSuggest.body === "string" && sumSuggest.body.includes("요약 테스트용"));
+  const sumApply = parse(await client.callTool({ name: "wikimate_summarize", arguments: { vault_path: vault, action: "apply", note: "20_Resources/summarizeme.md", summary: "서버 경유 요약 검증", dry_run: false } }));
+  check("서버경유 summarize apply: summary 반영", sumApply.ok === true && sumApply.dry_run === false && sumApply.summary?.after === "서버 경유 요약 검증");
+
+  await client.close();
+  console.log("종료 ✅");
+  console.log(`\n=== 총계: PASS ${pass} / FAIL ${fail} ===`);
+} finally {
+  await rm(vault, { recursive: true, force: true }).catch(() => {});
+  await rm(cfgFile, { force: true }).catch(() => {});
+}
+process.exit(fail === 0 ? 0 : 1);
