@@ -57,6 +57,7 @@ const mcp = json("plugins/wikimate/.mcp.json");
 const server = mcp.mcpServers?.wikimate;
 ok(server?.command === "node", "MCP node command");
 ok(Array.isArray(server?.args) && server.args.length === 1 && server.args[0] === "./mcp/server.mjs", "MCP 상대경로");
+ok(server?.cwd === ".", "MCP 작업 경로를 플러그인 루트로 고정");
 ok(existsSync(join(pluginRoot, server?.args?.[0] || "missing")), "MCP 진입점 존재");
 ok(!read("plugins/wikimate/.mcp.json").includes("CLAUDE_PLUGIN_ROOT"), "MCP에 Claude 전용 변수 없음");
 
