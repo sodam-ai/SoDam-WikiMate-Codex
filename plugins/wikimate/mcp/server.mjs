@@ -44,6 +44,7 @@ const collectTool = {
 
 const lintTool = {
   name: "wikimate_lint",
+  annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
   description:
     "옵시디언 볼트를 읽기 전용으로 건강검진합니다. 중복(source_hash)·깨진 [[링크]]·고아 노트·frontmatter 누락을 스캔해 '보고만' 합니다(파일을 생성·수정·삭제하지 않음). " +
     "vault(볼트 이름) 또는 vault_path로 대상 볼트를 지정(미지정 시 환경변수). " +
@@ -81,6 +82,7 @@ const fixTool = {
 
 const runlogTool = {
   name: "wikimate_runlog",
+  annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
   description:
     "Wikimate가 이 볼트에서 실제로 한 작업(노트 생성·이동·링크수정) 기록을 최근 것부터 보여줍니다(읽기 전용). " +
     "'AI가 내 볼트에 무엇을 했는지' 되돌아보는 안전 로그(.wikimate/runlog.jsonl). vault 또는 vault_path로 대상 지정.",
@@ -96,6 +98,7 @@ const runlogTool = {
 
 const vaultsTool = {
   name: "wikimate_vaults",
+  annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
   description:
     "옵시디언에 등록된 볼트 목록을 읽기 전용으로 보여줍니다. obsidian.json을 읽어 각 볼트의 이름·경로·열림 여부(open)·폴더 존재 여부를 돌려줍니다. " +
     "⚠️ 이 도구는 **고르지 않습니다** — 후보만 제안하며(현재 열린 볼트 open 우선), 실제 정리/수정은 사용자가 볼트를 고른 뒤 wikimate_collect/lint/fix로 진행합니다. " +
