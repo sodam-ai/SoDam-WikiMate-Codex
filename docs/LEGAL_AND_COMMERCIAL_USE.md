@@ -1,6 +1,6 @@
 # 법률·저작권·라이선스·상업적 사용 가이드
 
-> English follows the Korean guide. 이 문서는 2026-09-20 현재 저장소 파일을 기준으로 작성한 기술적 준수 안내이며 법률 자문이 아닙니다.
+> English follows the Korean guide. 이 문서는 2026-09-23 현재 저장소 파일을 기준으로 작성한 기술적 준수 안내이며 법률 자문이 아닙니다.
 
 ## 1. 확인된 사실
 
@@ -11,6 +11,7 @@
 - 런타임 MCP 서버의 npm 운영 의존성은 없습니다. 설치된 npm 패키지는 검증용 개발 의존성입니다.
 - 저장소에는 별도 `assets`, `public`, 이미지, 아이콘, 폰트, 영상 또는 음원 파일이 없습니다.
 - `docs/original`의 PDF·HTML·Markdown은 포팅 전 문서 보존본이며 현재 기능·법률 상태를 보장하는 문서가 아닙니다.
+- 로컬 보존 파일 `docs/original/CHECKPOINT.original.md`는 개인 컴퓨터 경로를 포함하므로 Git 추적·공개 배포에서 제외했습니다. 원래 작업 폴더에는 남아 있으니 폴더 전체를 ZIP으로 전달할 때 별도 점검해야 합니다.
 - Git에서 무시되는 `plugins/wikimate/sandbox-vault`에는 더미 노트와 로컬 절대경로가 있는 실행 로그가 남을 수 있습니다. Git에는 포함되지 않지만 작업 폴더 전체를 ZIP으로 배포하면 들어갈 수 있습니다.
 
 ## 2. 왕초보용 결론
@@ -104,7 +105,7 @@ AI 출력의 소유권, 등록 가능성, 비침해 여부는 관할법과 사�
 | 테스트 볼트 | Git 무시, 더미 문구 | 폴더 전체 ZIP 배포 전 제외 확인 |
 | 원본 PDF·HTML·문서 | 보존 자료 | `docs/original/README.md` 경고와 함께 배포 여부 결정 |
 | 상표·브랜드 | 이름 참조만 확인 | 등록·소유·사용 허락 여부는 별도 확인 |
-| 개인정보·비공개 도메인 | 추적 대상 파일에서 실제 이메일·토큰·개인 경로 미발견 | 배포 직전 보안 스캔 재실행 |
+| 개인정보·비공개 도메인 | 이번 문자열 검사에서 실제 이메일·토큰은 확인되지 않았으나 보존 체크포인트에 로컬 절대경로가 발견됨 | 값 자체는 문서에 복사하지 않음. 공개 전 사람이 경로·보존 문서·PDF를 재검토하고 보안 스캔 재실행 |
 
 ## 8. 배포 우선순위
 
@@ -116,6 +117,7 @@ AI 출력의 소유권, 등록 가능성, 비침해 여부는 관할법과 사�
 - `npm run security-check`, 의존성 감사, 라이선스 스캔 재실행
 - ignored 파일과 로컬 테스트 볼트를 제외한 Git 추적 파일만으로 배포물 생성
 - 입력자료·샘플·스크린샷·브랜드·개인정보 권리 확인
+- 보존 체크포인트의 로컬 경로와 원본 문서·PDF의 공개 필요성 및 권리 확인
 - 고객 납품 시 데이터 처리, 보증, 책임 제한, 지원 범위를 계약에 반영
 
 ### Should Have
@@ -145,7 +147,7 @@ AI 출력의 소유권, 등록 가능성, 비침해 여부는 관할법과 사�
 
 # Legal, Copyright, License, and Commercial-Use Guide
 
-> This guide reflects repository files reviewed on 2026-09-20. It is technical compliance guidance, not legal advice.
+> This guide reflects repository files reviewed on 2026-09-23. It is technical compliance guidance, not legal advice.
 
 ## 1. Verified facts
 
@@ -156,6 +158,7 @@ AI 출력의 소유권, 등록 가능성, 비침해 여부는 관할법과 사�
 - The runtime MCP server has no npm production dependency. Installed npm packages are development-only verification dependencies.
 - No separate assets, public folder, images, icons, fonts, video, or audio files were found.
 - PDF, HTML, and Markdown under `docs/original` are pre-port archives and do not establish the current functional or legal state.
+- The local archive `docs/original/CHECKPOINT.original.md` contains a personal computer path and is excluded from Git tracking and public distribution. It remains in the original working folder; review it separately before sharing a ZIP of that folder.
 - The Git-ignored `plugins/wikimate/sandbox-vault` may contain dummy notes and a run log with a local absolute path. Git excludes it, but a ZIP of the working folder may not.
 
 ## 2. Beginner summary
@@ -249,7 +252,7 @@ No guarantee is made that AI output is exclusively owned, registrable, or non-in
 | Test vault | Git-ignored dummy material | Confirm exclusion from whole-folder ZIPs |
 | Original PDF/HTML/docs | Archived material | Decide distribution with the warning in `docs/original/README.md` |
 | Trademarks and brands | Name references only | Verify registration, ownership, and permission separately |
-| Personal/private material | No real email, token, or personal path found in tracked files | Rerun the security scan before release |
+| Personal/private material | This string scan did not identify a real email or token, but found a local absolute path in the archived checkpoint | Do not copy the value into documentation. Have a person review the path, archive, and PDFs before publication; rerun the security scan |
 
 ## 8. Release priority
 
@@ -261,6 +264,7 @@ No guarantee is made that AI output is exclusively owned, registrable, or non-in
 - Rerun the security, dependency, and license checks.
 - Build releases only from tracked files, excluding ignored test vaults.
 - Clear rights for input material, samples, screenshots, brands, and personal data.
+- Review the archived checkpoint's local path and the necessity and rights of archived documents and PDFs.
 - Address data processing, warranties, liability limits, and support in customer contracts.
 
 ### Should Have

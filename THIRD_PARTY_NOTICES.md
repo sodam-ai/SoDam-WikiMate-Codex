@@ -1,6 +1,6 @@
 # Third-Party Software and Service Notices / 제3자 소프트웨어·서비스 고지
 
-> Audit date / 점검일: 2026-09-20. This is an inventory and compliance aid, not a modification of the Apache License and not legal advice.
+> Audit date / 점검일: 2026-09-23. This is an inventory and compliance aid, not a modification of the Apache License and not legal advice.
 
 ## Runtime / 실행 환경
 
@@ -24,7 +24,7 @@ The installed SDK includes its own `LICENSE` file. If you redistribute `node_mod
 
 ## Full installed development tree / 전체 설치 개발 트리
 
-Independent `license-checker` summary:
+The current `package-lock.json` declares these license identifiers for 93 development dependency entries:
 
 | Result | Count |
 |---|---:|
@@ -32,13 +32,12 @@ Independent `license-checker` summary:
 | ISC | 7 |
 | BSD-3-Clause | 2 |
 | BSD-2-Clause | 1 |
-| Project reported as `UNLICENSED` | 1 |
 
-No GPL, AGPL, LGPL, SSPL, or other copyleft identifier was found in the installed dependency tree. This is a tool result, not a legal compatibility guarantee.
+No GPL, AGPL, LGPL, SSPL, or other copyleft identifier was found among those lockfile declarations. The independent `license-checker` tool was not available for a fresh run in this review. A lockfile declaration is not a full audit of actual distributed license texts, notices, or optional artifacts.
 
-The single `UNLICENSED` result is the local `wikimate@0.10.0` package because it is marked `private: true`; its actual license is declared as `Apache-2.0` in `package.json`, `LICENSE`, and the plugin manifests.
+The local `wikimate@0.10.0` package is marked `private: true`; its license is declared as `Apache-2.0` in `package.json`, `LICENSE`, and the plugin manifests. It is not one of the 93 third-party dependency entries.
 
-설치 트리에서는 GPL·AGPL·LGPL·SSPL 계열 식별자가 발견되지 않았습니다. 이는 도구 결과이며 법적 호환성을 보장하지 않습니다. `UNLICENSED` 1건은 `private: true`인 로컬 프로젝트를 도구가 그렇게 표시한 것이며 실제 선언은 Apache-2.0입니다.
+현재 잠금파일의 93개 개발 의존성 선언에서는 GPL·AGPL·LGPL·SSPL 계열 식별자가 발견되지 않았습니다. 이번에는 독립 `license-checker` 도구를 다시 실행할 수 없었고, 잠금파일의 식별자만으로 실제 배포물의 라이선스 본문·NOTICE·선택 구성요소까지 보증할 수 없습니다. 로컬 프로젝트는 `private: true`이지만 선언 라이선스는 Apache-2.0이며, 93개 제3자 항목에 포함되지 않습니다.
 
 ## Optional external tools and services / 선택적 외부 도구·서비스
 

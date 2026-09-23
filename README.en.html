@@ -6,105 +6,232 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>SoDam-WikiMate for Codex — English Guide</title>
   <style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-
-ul.task-list[class]{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-font-size: inherit;
-width: 0.8em;
-margin: 0 0.8em 0.2em -1.6em;
-vertical-align: middle;
-}
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
-
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-color: #aaaaaa;
-}
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; }
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; }
-code span.at { color: #7d9029; }
-code span.bn { color: #40a070; }
-code span.bu { color: #008000; }
-code span.cf { color: #007020; font-weight: bold; }
-code span.ch { color: #4070a0; }
-code span.cn { color: #880000; }
-code span.co { color: #60a0b0; font-style: italic; }
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; }
-code span.do { color: #ba2121; font-style: italic; }
-code span.dt { color: #902000; }
-code span.dv { color: #40a070; }
-code span.er { color: #ff0000; font-weight: bold; }
-code span.ex { }
-code span.fl { color: #40a070; }
-code span.fu { color: #06287e; }
-code span.im { color: #008000; font-weight: bold; }
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; }
-code span.kw { color: #007020; font-weight: bold; }
-code span.op { color: #666666; }
-code span.ot { color: #007020; }
-code span.pp { color: #bc7a00; }
-code span.sc { color: #4070a0; }
-code span.ss { color: #bb6688; }
-code span.st { color: #4070a0; }
-code span.va { color: #19177c; }
-code span.vs { color: #4070a0; }
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
-</style>
-  <style type="text/css">:root { color-scheme: light dark; }
-html { scroll-behavior: smooth; }
-body { max-width: 1040px; margin: 0 auto; padding: 32px 24px 72px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.7; }
-h1, h2, h3 { line-height: 1.3; margin-top: 1.6em; }
-h1 { border-bottom: 3px solid #4f46e5; padding-bottom: .35em; }
-h2 { border-bottom: 1px solid #94a3b8; padding-bottom: .25em; }
-blockquote { border-left: 4px solid #4f46e5; margin-left: 0; padding: .35em 1em; background: rgba(99,102,241,.08); }
-code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-:not(pre) > code { padding: .1em .35em; border-radius: 4px; background: rgba(127,127,127,.14); }
-pre { overflow-x: auto; padding: 1em; border-radius: 8px; background: #111827; color: #f9fafb; }
-table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; }
-th, td { border: 1px solid #94a3b8; padding: .55em .7em; vertical-align: top; }
-th { background: rgba(127,127,127,.12); }
-a { color: #4f46e5; }
-details { border: 1px solid #94a3b8; border-radius: 8px; padding: .8em 1em; margin: 1em 0; }
-summary { cursor: pointer; }
-@media (max-width: 640px) { body { padding: 18px 14px 48px; font-size: 16px; } h1 { font-size: 1.8em; } h2 { font-size: 1.45em; } }
-@media print { body { max-width: none; padding: 0; } a { color: inherit; } pre, blockquote, table { break-inside: avoid; } }
-</style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
 </head>
 <body>
 <header id="title-block-header">
@@ -120,7 +247,8 @@ summarizes them as Obsidian-compatible Markdown knowledge.</p>
 <li>Project version: <code>0.10.0</code></li>
 <li>Codex plugin build: <code>0.10.0+codex.20260919174618</code></li>
 <li>Primary language: Korean</li>
-<li>한국어: <a href="README.md">README.md</a> · <a href="README.html">README.html</a></li>
+<li>한국어: <a href="README.md">README.md</a> · <a
+href="README.html">README.html</a></li>
 <li>HTML documentation: <a href="README.en.html">README.en.html</a></li>
 <li>License: Apache License 2.0</li>
 </ul>
@@ -252,6 +380,24 @@ required software</h2>
 </tr>
 </tbody>
 </table>
+<h3 id="first-time-setup">First-time setup</h3>
+<ol type="1">
+<li>Visit the <a href="https://openai.com/codex/">official Codex
+page</a> to choose the installation method for your computer, install
+Codex, and sign in. Terminal users can consult the <a
+href="https://learn.chatgpt.com/docs/codex/cli">official Codex CLI
+guide</a>. Availability and setup can vary by operating system and
+account.</li>
+<li>Download and install the appropriate package from the <a
+href="https://nodejs.org/en/download">official Node.js download
+page</a>. Open a new terminal after installation and run
+<code>node --version</code> to check that the version is at least 18.
+Node.js installers usually include npm; if you plan to run development
+checks, also run <code>npm --version</code>.</li>
+<li>Create a folder for your notes. Back up important existing notes to
+a separate location first. Then follow the plugin installation steps in
+section 4.</li>
+</ol>
 <h3 id="optional">Optional</h3>
 <table>
 <thead>
@@ -299,46 +445,54 @@ separately.</p>
 <h3 id="41-install-from-github">4.1 Install from GitHub</h3>
 <p>Run the following in PowerShell or a terminal. Keep quotation marks
 around paths containing spaces.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>codex plugin marketplace add sodam-ai<span class="op">/</span>SoDam-WikiMate-Codex</span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>codex plugin marketplace add sodam-ai<span class="op">/</span>SoDam-WikiMate-Codex</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
 <p>After installation, open a <strong>new Codex task</strong> so the
 skills and MCP configuration are reloaded. Continuing only in an
 existing conversation may retain an old cache.</p>
 <p>Verify installation:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>codex plugin list</span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>codex plugin list</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>codex mcp list</span></code></pre></div>
 <p>A healthy installation shows <code>wikimate@wikimate-codex</code> as
 enabled and lists the <code>wikimate</code> MCP server.</p>
 <h3 id="42-download-the-project">4.2 Download the project</h3>
 <p>Clone the Codex port with Git:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git clone https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>sodam-ai<span class="op">/</span>SoDam-WikiMate-Codex<span class="op">.</span><span class="fu">git</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git clone https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>sodam-ai<span class="op">/</span>SoDam-WikiMate-Codex<span class="op">.</span><span class="fu">git</span></span></code></pre></div>
 <p>Without Git, use <strong>Code → Download ZIP</strong> on GitHub.</p>
 <h3 id="43-install-from-a-local-folder">4.3 Install from a local
 folder</h3>
 <p>Replace the path below with the folder where you downloaded the
 repository.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>codex plugin marketplace add <span class="st">&quot;D:\path\to\SoDam-WikiMate-Codex&quot;</span></span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>codex plugin marketplace add <span class="st">&quot;D:\path\to\SoDam-WikiMate-Codex&quot;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
 <h3 id="44-mcp-only-manual-alternative">4.4 MCP-only manual
 alternative</h3>
 <p>Use this only when you need the MCP tools without plugin skills and
 the startup hook.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>codex mcp add wikimate <span class="op">--</span> node D<span class="op">:</span>\path\to\SoDam-WikiMate-Codex\plugins\wikimate\mcp\server<span class="op">.</span><span class="fu">mjs</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>codex mcp add wikimate <span class="op">--</span> node D<span class="op">:</span>\path\to\SoDam-WikiMate-Codex\plugins\wikimate\mcp\server<span class="op">.</span><span class="fu">mjs</span></span></code></pre></div>
 <p>To pass a vault path:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>codex mcp add wikimate <span class="op">--</span>env OBSIDIAN_VAULT_PATH<span class="op">=</span>D<span class="op">:/</span>MyVault <span class="op">--</span> node D<span class="op">:</span>\path\to\SoDam-WikiMate-Codex\plugins\wikimate\mcp\server<span class="op">.</span><span class="fu">mjs</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>codex mcp add wikimate <span class="op">--</span>env OBSIDIAN_VAULT_PATH<span class="op">=</span>D<span class="op">:/</span>MyVault <span class="op">--</span> node D<span class="op">:</span>\path\to\SoDam-WikiMate-Codex\plugins\wikimate\mcp\server<span class="op">.</span><span class="fu">mjs</span></span></code></pre></div>
 <p>This registers only the MCP tools. It does not install Wikimate
 skills, routing guidance, or the SessionStart safety context.</p>
 <h3 id="45-removal-and-updates">4.5 Removal and updates</h3>
 <p>Remove the plugin:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>codex plugin remove wikimate@wikimate-codex</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>codex plugin remove wikimate@wikimate-codex</span></code></pre></div>
 <p>After updating the local source, reinstall:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>codex plugin add wikimate@wikimate-codex</span></code></pre></div>
 <p>Then open a new Codex task. Maintainers should update and validate
 the cachebuster in the plugin manifest before distribution; users should
 not edit that field manually.</p>
 <h2 id="5-quick-start">5. Quick start</h2>
 <ol type="1">
-<li>Open the intended vault in Obsidian, or prepare the folder&#39;s
+<li>Open the intended vault in Obsidian, or prepare the folder's
 absolute path.</li>
 <li>Install the plugin and open a new Codex task.</li>
 <li>Open <code>/skills</code> and select <code>wikimate</code>.</li>
@@ -579,7 +733,7 @@ connection and store the returned ID or URL.</li>
 </ol>
 <h3 id="82-query-and-answer">8.2 Query and answer</h3>
 <ol type="1">
-<li>Search candidate notes using the question&#39;s key terms.</li>
+<li>Search candidate notes using the question's key terms.</li>
 <li>Confirm that each source file exists and is readable.</li>
 <li>Separate evidence notes and cite their files in the answer.</li>
 <li>Exclude missing files and broken Notion index entries from
@@ -867,7 +1021,7 @@ apply</td>
 </tr>
 <tr>
 <td>Mobile sync</td>
-<td>Sent through the user&#39;s separate sync service; that service&#39;s terms
+<td>Sent through the user's separate sync service; that service's terms
 apply</td>
 </tr>
 </tbody>
@@ -907,8 +1061,8 @@ workflow</li>
 and run logs</li>
 <li>Blocked vault escape through symbolic links and junctions</li>
 <li>Sanitized external CLI errors to avoid exposing note bodies</li>
-<li>Verified multiple Node versions, MCP smoke behavior, security
-checks, and installed-cache identity</li>
+<li>Verified MCP smoke behavior, security checks, and installed-cache
+identity (see Section 18 for dates and scope)</li>
 <li>Separated the public Codex repository from local verification scope,
 with real user-vault writes and live Notion integration listed as
 environment-specific checks</li>
@@ -919,7 +1073,8 @@ environment-specific checks</li>
 verification commands</h2>
 <p>There is no root <code>package.json</code>; run package commands from
 <code>plugins/wikimate</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> plugins\wikimate</span>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> plugins\wikimate</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>npm ci</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>npm run verify</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>node scripts\smoke-server<span class="op">.</span><span class="fu">mjs</span></span>
@@ -1091,8 +1246,10 @@ qualified legal counsel for commercial distribution or sensitive-data
 processing.</p>
 </blockquote>
 <p>For the detailed release checklist and the separation between
-verified facts and legal-review items, also read the <a href="docs/LEGAL_AND_COMMERCIAL_USE.md">legal, copyright, license, and
-commercial-use guide</a> and <a href="THIRD_PARTY_NOTICES.md">third-party software and service
+verified facts and legal-review items, also read the <a
+href="docs/LEGAL_AND_COMMERCIAL_USE.md">legal, copyright, license, and
+commercial-use guide</a> and <a
+href="THIRD_PARTY_NOTICES.md">third-party software and service
 notices</a>.</p>
 <h3 id="project-code">Project code</h3>
 <p>This project is provided under the <strong>Apache License
@@ -1112,9 +1269,15 @@ approval or affiliation through names or logos such as SoDam, WikiMate,
 Obsidian, or Notion.</li>
 <li>The software is provided without warranty. Users remain responsible
 for backups and production validation.</li>
+<li>The limitation of liability is set out in Section 8 of
+<code>LICENSE</code>; applicable law or a separate written agreement may
+take precedence. This is not an unconditional exemption from every
+liability.</li>
 </ul>
-<p>The English license controls: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License
-2.0</a>, <a href="https://www.apache.org/foundation/license-faq.html">Apache License
+<p>The English license controls: <a
+href="https://www.apache.org/licenses/LICENSE-2.0">Apache License
+2.0</a>, <a
+href="https://www.apache.org/foundation/license-faq.html">Apache License
 FAQ</a>.</p>
 <h3 id="commercial-use">Commercial use</h3>
 <p>The Wikimate code itself may be used commercially when you comply
@@ -1130,20 +1293,27 @@ requests, cross-border transfer, and organizational security rules.</li>
 <li><strong>Obsidian</strong>: as checked on 2026-09-20, its official
 license and pricing pages describe use for personal, commercial, and
 nonprofit purposes without a mandatory paid commercial license, while
-offering a paid support license. Policies can change; recheck <a href="https://obsidian.md/license">Obsidian License Overview</a> and <a href="https://obsidian.md/pricing">Obsidian Pricing</a> before
+offering a paid support license. Policies can change; recheck <a
+href="https://obsidian.md/license">Obsidian License Overview</a> and <a
+href="https://obsidian.md/pricing">Obsidian Pricing</a> before
 organizational deployment.</li>
 <li><strong>Notion</strong>: when connected, Notion service terms,
 privacy policy, and Developer Terms apply separately. Do not collect,
 store, alter, or delete integration data without end-user consent, and
-do not solicit user tokens. See <a href="https://www.notion.so/notion/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac">Notion
-Terms and Privacy</a> and <a href="https://www.notion.so/Developer-Terms-ba4131408d0844e08330da2cbb225c20">Notion
+do not solicit user tokens. See <a
+href="https://www.notion.so/notion/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac">Notion
+Terms and Privacy</a> and <a
+href="https://www.notion.so/Developer-Terms-ba4131408d0844e08330da2cbb225c20">Notion
 Developer Terms</a>.</li>
 <li><strong>Codex/OpenAI and sync services</strong>: separately review
 the terms, account type, organizational data controls, and retention
 policy.</li>
-<li><strong>Third-party packages</strong>: before redistribution,
-inspect the license and notices for each actual version. This project&#39;s
-license does not override third-party terms.</li>
+<li><strong>Third-party packages and materials</strong>: before
+redistribution, inspect the actual version, source, license, and
+commercial-use terms of each package and any fonts, images, icons, or
+templates used. This project's license does not override third-party
+terms. Check external API plans and AI-model usage policies
+separately.</li>
 </ol>
 <h3 id="beginner-use-matrix">Beginner use matrix</h3>
 <table>
@@ -1203,6 +1373,11 @@ Git contributors, trademark status of <code>Wikimate</code> or
 <code>SoDam AI Studio</code>, client contract terms, regulated-data
 compliance, or commercial redistribution rights in collected source
 material.</p>
+<p>The local archive <code>docs/original/CHECKPOINT.original.md</code>
+contains a personal computer path, so it is excluded from Git tracking
+and public distribution. The file remains in the original working
+folder. Before sharing a ZIP of the entire folder, review this file,
+its paths, and its rights separately.</p>
 <h3 id="checklist-before-collecting-material">Checklist before
 collecting material</h3>
 <ul>
@@ -1223,37 +1398,40 @@ cross-border-transfer policies?</li>
 holder or legal/security staff.</p>
 <h2 id="18-current-verification-status-and-limits">18. Current
 verification status and limits</h2>
-<p>Verified for the current port:</p>
+<p>Rechecked in this worktree on 2026-09-23 (Node.js 26):</p>
 <ul>
 <li>Reproducible dependency installation passed</li>
 <li>236 core checks passed</li>
 <li>18 MCP smoke checks passed</li>
-<li>Verification passed on Node.js 18, 20, and 26</li>
-<li>115 Codex-port checks passed</li>
-<li>Official plugin validator passed against source and installed
-cache</li>
-<li>Syntax checks for 30 JavaScript modules, parsing of 9 JSON files,
-and YAML parsing passed</li>
-<li>88 security checks passed; npm production and full audits reported
-zero vulnerabilities</li>
-<li>44 installed-cache file hashes matched and the plugin was
-enabled</li>
-<li>Read-only registered-vault check: 11 existed, 2 were open, and 0
-names were ambiguous</li>
-<li>Internal 5,000-note benchmark: about 2.385 seconds and about 2.68
-MiB heap growth</li>
+<li>127 Codex-port checks passed</li>
+<li>Syntax checks for 30 JavaScript modules and
+<code>git diff --check</code> passed</li>
+<li>Security scan: all 93 tracked and non-ignored untracked files
+inspected, no suspicious patterns</li>
+<li><code>npm audit --audit-level=moderate</code>: zero known
+vulnerabilities</li>
 </ul>
+<p>Node.js 18/20 compatibility, the official plugin validator,
+installed-cache hashes, registered-vault discovery, and the 5,000-note
+performance figures are records from earlier checks. <strong>They were
+not rerun in this review and must not be used as current-pass
+evidence.</strong></p>
 <p>Environment-specific checks still required before final
 deployment:</p>
 <ul>
-<li>No write was performed against the user&#39;s real vault during this
+<li>No write was performed against the user's real vault during this
 documentation step, to protect data.</li>
 <li>Live Notion create/read/update was not run because it is optional
 and requires account permissions.</li>
-<li>Remote GitHub Actions results must be checked separately after
-repository publication and PR creation.</li>
-<li>The current Git worktree contains many porting changes and only the
-original upstream remote, so it must not be pushed publicly as-is.</li>
+<li>This local CLI/MCP plugin has no browser screen or responsive mobile
+UI.</li>
+<li>Remote GitHub Actions results for this worktree's unmerged changes
+were not checked in this review.</li>
+<li>This worktree has 89 pre-existing Git changes, and <code>main</code>
+has only an <code>upstream</code> remote pointing to the
+<strong>original</strong> <code>SoDam-WikiMate</code> repository. This
+differs from the public Codex port repository, so do not push this
+checkout with its current remote configuration.</li>
 </ul>
 <p>Before deployment, use a test vault to run collect → approve → write
 → read-back → lint → backup restoration once, and have a person confirm

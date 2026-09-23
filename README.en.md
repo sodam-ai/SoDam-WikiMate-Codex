@@ -83,6 +83,12 @@ This project is not a hosted web service or a mobile application. It runs with C
 | Project folder | The complete repository | It must contain `plugins/wikimate` |
 | Notes folder | A folder you can write to | You must be able to create and edit files |
 
+### First-time setup
+
+1. Visit the [official Codex page](https://openai.com/codex/) to choose the installation method for your computer, install Codex, and sign in. Terminal users can consult the [official Codex CLI guide](https://learn.chatgpt.com/docs/codex/cli). Availability and setup can vary by operating system and account.
+2. Download and install the appropriate package from the [official Node.js download page](https://nodejs.org/en/download). Open a new terminal after installation and run `node --version` to check that the version is at least 18. Node.js installers usually include npm; if you plan to run development checks, also run `npm --version`.
+3. Create a folder for your notes. Back up important existing notes to a separate location first. Then follow the plugin installation steps in section 4.
+
 ### Optional
 
 | Software | When it is useful | Can Wikimate work without it? |
@@ -441,7 +447,7 @@ The MCP server communicates with Codex over standard input and output, so it doe
 - Added or strengthened cross-process locking, atomic writes, backups, and run logs
 - Blocked vault escape through symbolic links and junctions
 - Sanitized external CLI errors to avoid exposing note bodies
-- Verified multiple Node versions, MCP smoke behavior, security checks, and installed-cache identity
+- Verified MCP smoke behavior, security checks, and installed-cache identity (see Section 18 for dates and scope)
 - Separated the public Codex repository from local verification scope, with real user-vault writes and live Notion integration listed as environment-specific checks
 
 </details>
@@ -547,6 +553,7 @@ This project is provided under the **Apache License 2.0** in `LICENSE`. It gener
 - Mark files to which you made significant changes.
 - Apache 2.0 does not grant trademark rights. Do not imply official approval or affiliation through names or logos such as SoDam, WikiMate, Obsidian, or Notion.
 - The software is provided without warranty. Users remain responsible for backups and production validation.
+- The limitation of liability is set out in Section 8 of `LICENSE`; applicable law or a separate written agreement may take precedence. This is not an unconditional exemption from every liability.
 
 The English license controls: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0), [Apache License FAQ](https://www.apache.org/foundation/license-faq.html).
 
@@ -559,7 +566,7 @@ The Wikimate code itself may be used commercially when you comply with Apache 2.
 3. **Obsidian**: as checked on 2026-09-20, its official license and pricing pages describe use for personal, commercial, and nonprofit purposes without a mandatory paid commercial license, while offering a paid support license. Policies can change; recheck [Obsidian License Overview](https://obsidian.md/license) and [Obsidian Pricing](https://obsidian.md/pricing) before organizational deployment.
 4. **Notion**: when connected, Notion service terms, privacy policy, and Developer Terms apply separately. Do not collect, store, alter, or delete integration data without end-user consent, and do not solicit user tokens. See [Notion Terms and Privacy](https://www.notion.so/notion/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac) and [Notion Developer Terms](https://www.notion.so/Developer-Terms-ba4131408d0844e08330da2cbb225c20).
 5. **Codex/OpenAI and sync services**: separately review the terms, account type, organizational data controls, and retention policy.
-6. **Third-party packages**: before redistribution, inspect the license and notices for each actual version. This project's license does not override third-party terms.
+6. **Third-party packages and materials**: before redistribution, inspect the actual version, source, license, and commercial-use terms of each package and any fonts, images, icons, or templates used. This project's license does not override third-party terms. Check external API plans and AI-model usage policies separately.
 
 ### Beginner use matrix
 
@@ -579,6 +586,9 @@ Code, documentation, prompts, and notes may contain AI-generated or AI-edited ma
 ### Legal/professional review required
 
 This repository alone cannot establish the legal identity and rights basis behind `SoDam AI Studio`, contribution terms for other Git contributors, trademark status of `Wikimate` or `SoDam AI Studio`, client contract terms, regulated-data compliance, or commercial redistribution rights in collected source material.
+
+The local archive `docs/original/CHECKPOINT.original.md` contains a personal computer path, so it is excluded from Git tracking and public distribution. The file remains in the original working folder. Before sharing a ZIP of the entire folder, review this file, its paths, and its rights separately.
+
 ### Checklist before collecting material
 
 - Do I have permission to store, summarize, and transform this material?
@@ -592,25 +602,24 @@ If any answer is unclear, stop collection and consult the rights holder or legal
 
 ## 18. Current verification status and limits
 
-Verified for the current port:
+Rechecked in this worktree on 2026-09-23 (Node.js 26):
 
 - Reproducible dependency installation passed
 - 236 core checks passed
 - 18 MCP smoke checks passed
-- Verification passed on Node.js 18, 20, and 26
-- 115 Codex-port checks passed
-- Official plugin validator passed against source and installed cache
-- Syntax checks for 30 JavaScript modules, parsing of 9 JSON files, and YAML parsing passed
-- 88 security checks passed; npm production and full audits reported zero vulnerabilities
-- 44 installed-cache file hashes matched and the plugin was enabled
-- Read-only registered-vault check: 11 existed, 2 were open, and 0 names were ambiguous
-- Internal 5,000-note benchmark: about 2.385 seconds and about 2.68 MiB heap growth
+- 127 Codex-port checks passed
+- Syntax checks for 30 JavaScript modules and `git diff --check` passed
+- Security scan: all 93 tracked and non-ignored untracked files inspected, no suspicious patterns
+- `npm audit --audit-level=moderate`: zero known vulnerabilities
+
+Node.js 18/20 compatibility, the official plugin validator, installed-cache hashes, registered-vault discovery, and the 5,000-note performance figures are records from earlier checks. **They were not rerun in this review and must not be used as current-pass evidence.**
 
 Environment-specific checks still required before final deployment:
 
 - No write was performed against the user's real vault during this documentation step, to protect data.
 - Live Notion create/read/update was not run because it is optional and requires account permissions.
-- Remote GitHub Actions results must be checked separately after repository publication and PR creation.
-- The current Git worktree contains many porting changes and only the original upstream remote, so it must not be pushed publicly as-is.
+- This local CLI/MCP plugin has no browser screen or responsive mobile UI.
+- Remote GitHub Actions results for this worktree's unmerged changes were not checked in this review.
+- This worktree has 89 pre-existing Git changes, and `main` has only an `upstream` remote pointing to the **original** `SoDam-WikiMate` repository. This differs from the public Codex port repository, so do not push this checkout with its current remote configuration.
 
 Before deployment, use a test vault to run collect → approve → write → read-back → lint → backup restoration once, and have a person confirm the publication repository, branch, and legal notices.
